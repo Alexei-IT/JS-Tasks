@@ -4,6 +4,8 @@ alert('Привет,' + user);
 
 //Запросите у пользователя число. Затем запросите степень, в которую нужно возвести это число. Выведите в консоль результат.
 let point = prompt('Число?');
-alert('Ваше число ' + point);
+let numberPoint = Number(point)
+alert('Ваше число ' + numberPoint);
 let st = prompt('Степень?');
-alert('Ваш конечный результат - ' + point ** st + ')))');
+let numberSt = Number(st);
+alert('Ваш конечный результат - ' + numberPoint ** numberSt + ')))');
