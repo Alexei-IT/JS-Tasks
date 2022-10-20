@@ -1,179 +1,210 @@
-// 1 с помощью логического И в условии проверьте, находится ли переменная n в диапазоне чисел от 0 до 100 включительно./с помощью логического ИЛИ в условии проверьте, находится ли переменная n в диапазоне чисел от 0 до 100 включительно.
-let n = 100;
-console.log(n)
-    if (100 >= n >= 0) {
-        console.log('true');
-    } else {
-        console.log('false')
-    }
+let userNumber;
+do {
+    userNumber = Number(prompt('Введите число'))
+} while (userNumber !== 1);
+alert('Верно')
 
+// 1
+// Перепишите код, заменив цикл for на while, без изменения поведения цикла.
 
+for (let i = 0; i < 3; i++) {
+    alert(`number ${i}!`);
+}
+let i = 0
+while (i < 2) {
+    i += 1
+    alert(`number ${i}!`);
+}
 
-if (n <= 100 || n < 0) {
-    console.log('true');
+//2
+// Перепишите код с использованием тернарного оператора
+
+let male = true;
+let gender;
+if (male) {
+    gender = 'man';
 } else {
-    console.log('false')
+    gender = 'woman'
 }
 
+gender = male ? 'man' : 'women';
 
 
+//3
+// Задать массив логических значений (true/false). Например: const roles = [true, false, false, true, false]
+// Каждое значение обозначает админ (true) или пользователь (false).
+// Из этого массива сформировать массив объектов - roles, такой же длины, как и заданный массив.
+// У каждого объекта должно быть одно поле, role, которое равно admin, если значение в заданном массиве - true, и user, если значение в заданном массиве - false.
+// Т.е. из
+// [true, false, false]
+// должно получиться
+// [{ role: 'admin' }, { role: 'user' }, { role: 'user' } ]
 
-// 2 Вывести в консоль через шаблонные строки заработную плату всех работников в таком формате:Заработная плата ххх составляет ххх рублей.
-
-const engineers = {
-    Den: 1000,
-    Matt: 5000,
-    Steve: 2000
+let roles = [true, false, false, true, false]
+let roles2 = [];
+for (let i = 0; i < roles.length; i++) {
+    let userRole = roles[i] === true ? { role: 'admin' } : { role: 'user' };
+    roles2.push(userRole)
 }
+console.log(roles2)
 
-for (let property in engineers) {
-    console.log(`Заработная плата ${property} составляет ${engineers[property]} рублей`)
+
+// 4
+// оздайте функцию findPositiveNumbers()
+// 1) Внутри функции должен определяться массив, например let arr = [5, 4, 3, -3, -10, -1, 8, -20, 0] .
+// Функция должна вывести в консоль все положительные числа по одному.
+// 2) Функция должна не выводить числа в консоль, а составить из них новый массив. В самом конце тела функции - вывести новый массив в консоль.
+// 3) Функция должна не выводить массив в консоль, а вернуть новый массив из положительных элементов arr.
+// 4) Изначальный массив arr должен не описываться внутри функции, а поступать в нее как параметр.
+
+// 1)
+function findPositiveNumbers() {
+    let arr = [5, 4, 3, -3, -10, -1, 8, -20, 0]
+    for (let item of arr) {
+        if (item > 0) {
+            console.log(item)
+        }
+    }
 }
+findPositiveNumbers()
 
-
-
-// 3 Создать массив из 5 элементов.Используя цикл for, вывести каждый второй элемент массива в консоль.
-let five = ['one', 'two', 'three', 'four', 'five'];
-console.log(five)
-for (let i = 1; i < five.length; i += 2) {
-    console.log(five[i])
+// 2)
+function findPositiveNumbers() {
+    let arr = [5, 4, 3, -3, -10, -1, 8, -20, 0]
+    let arr2 = []
+    for (let item of arr) {
+        if (item > 0) {
+            arr2.push(item)
+        }
+    }
+    console.log(arr2)
 }
+findPositiveNumbers()
 
-
-// 4 Вывести в консоль значения всех элементов массива и соответствующие им индексы в таком виде:
-// Индексу 0 соответствует число 42
-// Индексу 1 соответствует число 65
-// и т.д.
-let numbers4 = [42, 65, 49, 68, 56, 47, 70, 42, 51, 35, 58, 63, 40, 70];
-console.log(numbers4)
-
-for (let i = 0; i < numbers4.length; i++) {
-
-    console.log(`Индексу  ${i}  Соответствует число ${numbers4[i]}`)
+// 3)
+function findPositiveNumbers() {
+    let arr = [5, 4, 3, -3, -10, -1, 8, -20, 0]
+    let arr2 = []
+    for (let item of arr) {
+        if (item > 0) {
+            arr2.push(item)
+        }
+    }
+    return arr2
 }
+findPositiveNumbers()
 
-// 5 Добавить в каждый объект дополнительное поле usersAnswer со значением null.
-// Решение должно работать для массива любой длины.
-let questions = [{
-    question: "What's the currency of the USA?",
-    choices: ["US dollar", "Ruble", "Horses", "Gold"],
-    corAnswer: 0
-}, {
-    question: "Where was the American Declaration of Independence signed?",
-    choices: ["Philadelphia", "At the bottom", "Frankie's Pub", "China"],
-    corAnswer: 0
-}];
-for (let item of questions) {
-    item.usersAnswer = 'null'
-    console.log(item)
+// 4
+let arr = [5, 4, 3, -3, -10, -1, 8, -20, 0]
+
+function findPositiveNumbers(arr) {
+    let arr2 = []
+    for (let item of arr) {
+        if (item > 0) {
+            arr2.push(item)
+        }
+    }
+    return arr2
 }
-console.log(questions)
+findPositiveNumbers(arr)
+
+
+// 5
+// Напишите функцию, которая принимает два параметра: значение и количество элементов. Функция создает новый массив и заполняет его этим значением в указанном количестве.
+// Например: из переданных значений ('a', 3) получаем массив ['a', 'a', 'a']
+
+function five(meaning, quantity) {
+    let arrFive = []
+    for (let i = 0; i < quantity; i++) {
+        arrFive.push(meaning)
+    }
+    console.log(arrFive)
+    return arrFive;
+}
+five('a', 20);
+
 
 // 6
-// 1)Вывести в консоль все элементы массива, используя 2 разных цикла: for-of и for со счетчиком
-let numbers3 = [42, 65, 49, 68, 56, 47, 70, 42, 51, 35, 58, 63, 40, 70]
+// Определите массив, например let arr = [5, 4, 3, 8, 0].
+// Создайте функцию filterFor(arr, a). Функция должна вернуть новый массив из элементов arr, но в нем должны содержаться элементы, которые больше или равны (>=) значению переменной a.
+// Например, запуск функции filterFor(arr, 5) дает результат [5,8]
+// а запуск функции filterFor(arr, 10) дает результат []
+// а запуск функции filterFor(arr, 3.11) дает результат [4,5,8]
 
-for (item of numbers3) {
-    console.log(item)
+
+function filterFor(arr, a) {
+    let arrTwo = [5, 4, 3, 8, 0]
+    let arr1 = []
+    for (let i = 0; i < arrTwo.length; i++) {
+        if (arrTwo[i] >= a) {
+            arr1.push(arr[i])
+        }
+    }
+    return arr1;
+}
+filterFor(arr, 10)
+console.log(filterFor(arr, 10))
+
+
+// 7
+// Написать функцию вывода в консоль случайного цвета. Это будет строка вида "rgb(10,55,250)"
+// Здесь у вас будет две функции: одна ваша - getRandomRGB, а вторая - функция получения случайного числа в диапазоне min - max. Вот эта функция (просто скопируйте, она уже готова):
+// function getRandomInteger(min, max) {
+// return Math.floor(Math.random() * (max - min)) + min;
+// }
+
+function getRandomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
 }
 
-// 2)Посчитать и вывести в консоль сумму элементов в массиве.
-let numbers2 = [42, 65, 49, 68, 56, 47, 70, 42, 51, 35, 58, 63, 40, 70]
-
-let sum = 0;
-
-for (i = 0; i < numbers2.length; i++) { sum += numbers2[i] }
-console.log(sum)
-
-// 3) Посчитать и вывести в консоль сумму четных элементов в массиве.
-let numbers1 = [42, 65, 49, 68, 56, 47, 70, 42, 51, 35, 58, 63, 40, 70]
-let sum2 = 0
-
-// 4)Найти и вывести в консоль максимальное число массива.
-let result = 0
-for (i = 0; i < numbers1.length; i++) {
-    if (numbers1[i] % 2 == 0) {
+function getRandomRGB() {
+    console.log(` RGB  (${ getRandomInteger(0, 255)} , ${getRandomInteger(0, 255)} ,  ${getRandomInteger(0, 255)}) `)
+}
+getRandomRGB()
 
 
-        result = sum2 += numbers1[i]
+//8
+// Написать функцию, которая выводит в консоль квадраты чисел из заданного диапазона (от min до max), где значения min и max передаются в функцию как параметры.
+// Примеры вызова такой функции:
+// getSquares(0, 100) - выведет квадраты чисел от 0 до 100
+// getSquares(56, 87) - выведет квадраты чисел от 56 до 87
+
+function pow(min, max) {
+    for (let i = 0; i <= max; i++) {
+        console.log(min ** 2)
+        min++
+    }
+}
+pow(2, 20)
+
+
+//9
+//Написать функцию isInteger(x), которая определяет, является ли число целым, и возвращает true либо false.
+//Для проверки, целое ли число, вам понадобится опеатор % (подумайте, остаток от деления на какое число подойдет для вашей цели)
+
+function isInteger(x) {
+    if (x % 1 == 0) {
+        return "true";
 
     } else {
-
-    }
-
-}
-console.log(result)
-
-
-// 5)Определить и вывести в консоль индекс максимального числа массива (или индексы, если число встречается более одного раза). Само максимальное число мы уже нашли в прошлой части задачи, повторно его искать не нужно.
-let numbers = [42, 65, 49, 68, 56, 47, 70, 42, 51, 35, 58, 63, 40, 70];
-let max = numbers[0];
-
-for (i = 0; i < numbers.length; i++) {
-    if (numbers[i] > max) {
-        max = numbers[i]
-
+        return 'false'
     }
 }
-for (i = 0; i < numbers.length; i++) {
-    if (max == numbers[i]) {
-        console.log(i)
-    }
-}
+isInteger(-25.4);
 
 
+// 10
+// Написать функцию, которая принимает целое число n.   
+// Внутри функции запустить цикл от 1 до n с шагом 0.5. На каждой итерации цикла выводить в консоль текущее число (i) и информацию о том, целое ли оно.
 
-// 7 Определить массив let arr = [5, 4, 3, -3, -10, -1, 8, -20, 0]
-// Создать новый массив из элементов массива arr, но в новом должны содержаться только положительные элементы.
-let arr1 = [5, 4, 3, -3, -10, -1, 8, -20, 0];
-let newArr = [];
-for (item of arr1) {
-    if (item > 0) {
-        newArr.push(item)
-    }
-}
-console.log(newArr)
-
-
-// 8 Определить массив, например let nums = [5, 4, 3, 8, 0] и переменную let limit = 5;
-// Создать новый пустой массив. В цикле наполнить его элементами nums, но в новом должны содержаться элементы, больше и равные (>=) значению переменной limit.
-let nums = [5, 4, 3, 8, 0];
-let limit = 5;
-
-let arr = [];
-for (item of nums) {
-    if (item >= limit) {
-        arr.push(item)
-    }
-}
-console.log(arr)
-
-// 9 Пройти в цикле по массиву и вывести имена всех пользователей, возраст которых больше 15.
-const users = [{ name: 'Vasya', age: 23 }, { name: 'Olya', age: 12 }, { name: 'Anna', age: 22 }, { name: 'Alex', age: 18 }, { name: 'Valery', age: 8 }]
-for (item of users) {
-
-    for (let property in item) {
-        if (item['age'] < 15) {
-            console.log(item['name'])
+function whole(n) {
+    let i;
+    for (i = 1; i <= n; i += 0.5) {
+        if (i % 1 == 0) {
+            console.log(i + ' integer')
+        } else {
+            console.log(i + ' decimal')
         }
-
     }
 }
-
-
-// 10* 1) В цикле сформировать массив объектов с ключами word (само слово), length (длина слова):
-// [{word:'морковь', length: 7}, {word:'баклажан', length: 8} и т.п.]
-// Вывести этот массив в консоль.
-// Подсказка: длину строки можно определить с помощью метода .length. Например, для переменной let string = 'text' это будет string.length (результат //- 4, т.к. слово text состоит из 4 символов)
-// 2) Пройтись по полученному массиву объектов и вывести в консоль строки вида "слово - длина_слова", например "картошка - 8"
-let vegetables = ["морковь", "баклажан", "репа", "топинамбур"];
-let veg2 = [];
-for (let i = 0; i < vegetables.length; i++) {
-
-    veg2.push({ name: vegetables[i], length: vegetables[i].length })
-}
-console.log(veg2)
-
-for (let i = 0; i < veg2.length; i++) {
-    console.log(`${veg2[i].name} - ${veg2[i].name.length}`)
-}
+whole(9.2)
