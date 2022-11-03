@@ -13,8 +13,8 @@ console.log(ucFirst('hello'))
 //Напишите функцию checkSpam(str), возвращающую true, если str содержит 'badWord' или 'XXX', а иначе false.
 // Функция должна быть нечувствительна к регистру.
 let checkSpam = (str) => {
-    str.toLowerCase()
-    if (str.includes('badworld') || str.includes('xxx')) {
+    let low = str.toLowerCase()
+    if (low.includes('badworld') || low.includes('xxx')) {
         return false
     } else {
         return true
@@ -37,20 +37,12 @@ console.log(rev('привет,мир!'))
 //4 НЕ знаю как решить.
 //Массив содержит строки с информацией о железнодорожных станциях на севере Англии. Строки представляют собой трёхбуквенный код станции, затем некоторые машиночитаемые данные, за которыми следует точка с запятой, а затем название станции, пригодное для чтения человеком. 
 let stations = ['MAN675847583748sjt567654;Manchester Piccadilly', 'GNF576746573fhdg4737dh4;Greenfield', 'LIV5hg65hd737456236dch46dg4;Liverpool Lime Street', 'SYB4f65hf75f736463;Stalybridge', 'HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield'];
-let three = stations.map(item => {
-    let sl = item.slice(0, 3)
-    return sl
-})
-console.log(three)
-let four = stations.map(item => {
-    let point = item.indexOf(';') + 1
-    let sl2 = item.slice(point)
-    return sl2
-
-})
-let last = three.concat(four)
-console.log(last)
-
+for (let item of stations) {
+    let three = item.slice(0, 3)
+    let border = item.indexOf(';')
+    let four = item.slice(border + 1)
+    console.log(`${three}: ${four}`)
+}
 
 //5
 //Напишите функцию unique(arr), которая принимает массив, а возвращает новый массив, содержащий только уникальные элементы arr.
