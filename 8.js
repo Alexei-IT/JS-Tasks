@@ -3,7 +3,7 @@
 // С помощью браузера ... я открыл страничку ... 
 // (необходимые значения добавьте с помощью BOM)
 console.log(
-    `C помощью браузера ${navigator.userAgent} я открыл страничку https:myfreedomby.getcourse.ru/pl/teach/control/lesson/view?id=218297303&editMode=0`
+    `C помощью браузера ${navigator.userAgent} я открыл страничку ${location}`
 )
 
 //2
@@ -16,7 +16,9 @@ for (let i of document.querySelectorAll('li')) {
 //3
 let all = document.querySelectorAll('li')
 for (let i = 0; i < all.length; i++) {
-   //помогите 
+    //помогите 
+    all[i].innerText = i
+    console.log(all[i].innerText)
 }
 
 
@@ -53,19 +55,18 @@ document.body.appendChild(fun('span', 'yellow', 'Good morning!'))
 //7
 //Вставить в страницу (в html документ) тег <select>. С помощью js (в цикле) добавить в этот select опции (option) под годы от 1960 по 2020.
 let sel = document.createElement('select')
-document.body.appendChild(sel)
 for (let i = 1960; i < 2021; i++) {
     let opt = document.createElement('option')
     sel.appendChild(opt)
     opt.innerText += i
 }
+document.body.appendChild(sel)
 
 
 //8
 //Маска получается такой: "Клиент ИМЯ СТАТУС заказ", где имя - свойство объекта (а объект здесь - это текущая ячейка массива), статус зависит от от свойства order: если true – то оплатил, если false – то отменил.
 let arr = [{ name: "Женя", order: true }, { name: "Кристина", order: true }, { name: "Павел", order: false }, { name: "Виолетта", order: false }, { name: "Костя", order: true }];
 let ul = document.createElement('ul')
-document.body.appendChild(ul)
 let st
 for (let i of arr) {
     let li = document.createElement('li')
@@ -73,7 +74,7 @@ for (let i of arr) {
     st = i.order == true ? 'оплатил' : 'отменил'
     li.innerText = `Клиент ${i.name} ${st} заказ `
 }
-
+document.body.appendChild(ul)
 
 //9
 //1) при помощи JS создать DIV, задать ему css стили (фон, паддинги)
@@ -103,7 +104,7 @@ for (let item of tops) {
 }
 
 
-//10
+//11
 //Создать в html таблицу (table).
 // C помощью js заполнить таблицу информацией из массива, в одной колонке будут имена, во второй возраст. Имена должны быть красного цвета, age - синего.
 const users = [{ name: 'Mark', age: 12 }, { name: 'Olga', age: 30 }, { name: 'Tom', age: 25 }]
@@ -114,9 +115,9 @@ for (let i = 0; i < users.length; i++) {
     let tdAge = document.createElement('td')
     tr.appendChild(tdName)
     tr.appendChild(tdAge)
-    document.querySelector('table').appendChild(tr)
     tdName.innerText = users[i].name
     tdAge.innerText = users[i].age
     tdName.style.background = 'red'
     tdAge.style.background = 'blue'
+    document.querySelector('table').appendChild(tr)
 }
