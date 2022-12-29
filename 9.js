@@ -34,21 +34,34 @@ form.addEventListener('submit', (event) => {
 //4
 //Создать в html форму с текстовым input, тегом select, вторым текстовым input и кнопкой. Добавить в html div. Внутри select будут options - арифметические знаки. В оба инпута пользователь вводит число. Когда пользователь отправляет форму (событие submit), над двумя числами выполняется действие, выбранное в select (чтобы получить выбранный пользователем option, мы "забираем" значение  select.value). Результат отображается в div.
 
-//не выбивает результат почему-то
+//1 способ
 let select = document.querySelector('select')
-let form2 = document.querySelector('form2')
+let form2 = document.querySelector('.form2')
 let in4 = document.querySelector('.in4')
 let in5 = document.querySelector('.in5')
-let result = document.querySelector('.result')
-
 form2.addEventListener('submit', (event) => {
     event.preventDefault()
-    result.innerText === eval(`${in4.value}${select.value}${in5.value}`)
+    document.querySelector('.result').innerText = eval(`${Number(in4.value)}${select.value}${Number(in5.value)}`)
+})
+//2 способ
+form2.addEventListener('submit', (event) => {
+    event.preventDefault()
+    if (select.value == '-') {
+        document.querySelector('.result').innerText = Number(in4.value) - Number(in5.value)
+    } else if (select.value == '+') {
+        document.querySelector('.result').innerText = Number(in4.value) + Number(in5.value)
+    } else if (select.value == '/') {
+        document.querySelector('.result').innerText = Number(in4.value) / Number(in5.value)
+    } else if (select.value == '*') {
+        document.querySelector('.result').innerText = Number(in4.value) * Number(in5.value)
+    } else {
+        console.log('error')
+    }
 })
 
 
 //5
-//Вставить в разметку html тег button без js (просто предусмотреть в разметке). При наведении на кнопку изменять ее цвет каждый раз рандомным цветом. При выведении мышки за пределы кнопки поворачивать кнопку на рандомный угол от -180 до 180 градусов. Использовать обработку событий mouseenter, mouseleave на этой кнопке.
+// Вставить в разметку html тег button без js (просто предусмотреть в разметке). При наведении на кнопку изменять ее цвет каждый раз рандомным цветом. При выведении мышки за пределы кнопки поворачивать кнопку на рандомный угол от -180 до 180 градусов. Использовать обработку событий mouseenter, mouseleave на этой кнопке.
 let getRandomColor = () => {
     var letters = '0123456789ABCDEF';
     var color = '#';
